@@ -1,0 +1,130 @@
+{
+  "name": "webworxx",
+  "description": "Installs/Configures WebWorxx",
+  "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
+  "maintainer": "T-Systems Ltd.",
+  "maintainer_email": "ijonas.kisselbach@t-systems.com",
+  "license": "All rights reserved",
+  "platforms": {
+    "ubuntu": [
+
+    ],
+    "debian": [
+
+    ]
+  },
+  "dependencies": {
+    "build-essential": [
+
+    ],
+    "runit": [
+
+    ],
+    "mongodb": [
+
+    ],
+    "redis": [
+
+    ],
+    "mysql": [
+
+    ],
+    "nginx": [
+
+    ],
+    "openssl": [
+
+    ],
+    "passenger_enterprise": [
+
+    ]
+  },
+  "recommendations": {
+  },
+  "suggestions": {
+  },
+  "conflicting": {
+  },
+  "providing": {
+  },
+  "replacing": {
+  },
+  "attributes": {
+    "webworxx/dir": {
+      "display_name": "Webworxx Deploy Directory",
+      "description": "Top level folder of WebWorxx code, sometimes called the project folder.",
+      "default": "/home/webapps/webworxx",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "webworxx/megatron_dir": {
+      "display_name": "Megatron Deploy Directory",
+      "description": "Top level folder of Megatron code.",
+      "default": "/home/webapps/megatron",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "webworxx/mysql_username": {
+      "display_name": "WebWorxx Application MySQL Username",
+      "description": "MySQL user account used by WebWorxx.",
+      "default": "wwxx_dev",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "webworxx/mysql_password": {
+      "display_name": "WebWorxx Application MySQL Password",
+      "description": "MySQL password used by WebWorxx.",
+      "default": "wwxx_dev",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    },
+    "webworxx/mysql_database": {
+      "display_name": "WebWorxx MySQL Database",
+      "description": "MySQL database used by WebWorxx.",
+      "default": "wwxx_dev",
+      "choice": [
+
+      ],
+      "calculated": false,
+      "type": "string",
+      "required": "optional",
+      "recipes": [
+
+      ]
+    }
+  },
+  "groupings": {
+  },
+  "recipes": {
+    "webworxx": "Installs webworxx and megatron"
+  },
+  "version": "0.0.1"
+}

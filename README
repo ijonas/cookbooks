@@ -1,0 +1,6 @@
+Ijonas Kisselbach's Chef Recipes
+================================
+
+This repo contains my Opscode Chef Recipes, which are either direct copies of existing recipes such as the MySQL and Apache ones, or they are ones I've developed myself.
+
+Note: Use at your own peril.

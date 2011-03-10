@@ -1,0 +1,15 @@
+{
+        "contentmigrator": {
+                "tasklib_home": "/root/taskLibHome"
+        },
+    
+        "java": { 
+          "install_flavor": "openjdk"
+        }, 
+        "mysql": {
+          "server_root_password": "Asomav1"
+        },
+        
+        
+        "run_list": ["tomcat", "mysql::server", "mysql", "mongodb::source", "jruby", "contentmigrator"]
+}

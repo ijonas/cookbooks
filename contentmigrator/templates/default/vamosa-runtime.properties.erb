@@ -1,0 +1,37 @@
+vamosa.serverLogFolderPath=<%= node["tomcat"]["base"] %>/logs
+vamosa.taskLibraryPath=<%= node["contentmigrator"]["tasklib_home"] %>
+vamosa.executor.corePoolSize=8
+vamosa.executor.maxPoolSize=20
+vamosa.executor.idleThreadKeepAlive=120
+vamosa.executor.queueSize=20
+
+vamosa.log.pipelineReports.serverHost=localhost
+vamosa.log.pipelineReports.serverPort=27017
+vamosa.log.pipelineReports.databaseName=pipelineReports
+
+activeMQ.brokerURL=tcp://localhost:61616
+
+# Uncomment and modify if you're using MySQL
+hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+hibernate.connection.driver_class=com.mysql.jdbc.Driver
+hibernate.connection.url=jdbc:mysql://<%= node[:contentmigrator][:mysql_host] %>/<%= node[:contentmigrator][:mysql_database] %>
+hibernate.connection.username=<%= node[:contentmigrator][:mysql_username] %>
+hibernate.connection.password=<%= node[:contentmigrator][:mysql_password] %>
+
+# # Uncomment and modify if you're using Oracle
+# hibernate.dialect=org.hibernate.dialect.Oracle9Dialect
+# hibernate.connection.driver_class=oracle.jdbc.driver.OracleDriver
+# hibernate.connection.url=jdbc:oracle:thin:@localhost:1521:vamosa
+# hibernate.connection.username=vcm
+# hibernate.connection.password=vcm
+# hibernate.connection.SetBigStringTryClob=true
+# hibernate.jdbc.batch_size=0
+
+# # Uncomment and modify if you're using MSSQL
+# hibernate.dialect=org.hibernate.dialect.SQLServerDialect
+# hibernate.connection.driver_class=com.microsoft.sqlserver.jdbc.SQLServerDriver
+# hibernate.connection.url=jdbc:sqlserver://localhost:1433;databaseName=vamosa;SelectMethod=cursor
+# hibernate.connection.username=vcm
+# hibernate.connection.password=vcm
+# hibernate.connection.SetBigStringTryClob=true
+# hibernate.jdbc.batch_size=15

@@ -1,0 +1,2 @@
+create database <%= @node[:webworxx][:mysql_database] %> character set utf8 collate utf8_bin;
+grant all privileges on <%= @node[:webworxx][:mysql_database]%>.* to '<%= @node[:webworxx][:mysql_username]%>'@'localhost' identified by '<%= @node[:webworxx][:mysql_password] %>';

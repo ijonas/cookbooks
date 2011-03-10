@@ -1,0 +1,2 @@
+create database <%= @node[:contentmigrator][:mysql_database] %> character set utf8 collate utf8_bin;
+grant all privileges on <%= @node[:contentmigrator][:mysql_database]%>.* to '<%= @node[:contentmigrator][:mysql_username]%>'@'%' identified by '<%= @node[:contentmigrator][:mysql_password] %>';

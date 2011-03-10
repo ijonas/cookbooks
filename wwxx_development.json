@@ -1,0 +1,14 @@
+{
+"run_list": [
+    "recipe[build-essential]",
+    "recipe[runit]",
+    "recipe[nginx::source]",
+    "recipe[mysql::server]",
+    "recipe[mysql]",
+    "recipe[ruby_enterprise]",
+    "recipe[passenger_enterprise::nginx]",
+    "recipe[redis::source]",
+    "recipe[mongodb::source]",
+    "recipe[webworxx]"
+  ]
+}
