@@ -7,11 +7,11 @@
 # All rights reserved - Do Not Redistribute
 #
 
-# include_recipe "tomcat"
+include_recipe "tomcat"
 # include_recipe "mysql::server"
 # include_recipe "mysql"
-# include_recipe "mongodb::source"
-# include_recipe "jruby"
+include_recipe "mongodb::source"
+include_recipe "jruby"
 
 package "unzip" do
   action :install
@@ -24,12 +24,21 @@ directory "/opt/downloads" do
   action :create
 end
 
+directory node[:contentmigrator][:tasklib_home] do
+  owner node[:tomcat][:user]
+  group node[:tomcat][:group]
+  mode "0755"
+  action :create
+  recursive true
+end
+
 # create a folder to unzip the war file contents into 
 directory "#{node[:tomcat][:base]}/webapps/vcm" do
   owner node[:tomcat][:user]
   group node[:tomcat][:group]
   mode "0755"
   action :create
+  recursive true
 end
 
 # download the WAR file
