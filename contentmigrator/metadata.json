@@ -2,12 +2,24 @@
   "name": "contentmigrator",
   "description": "Installs/Configures contentmigrator",
   "long_description": "= DESCRIPTION:\n\n= REQUIREMENTS:\n\n= ATTRIBUTES:\n\n= USAGE:\n\n",
-  "maintainer": "YOUR_COMPANY_NAME",
-  "maintainer_email": "YOUR_EMAIL",
+  "maintainer": "Ijonas Kisselbach",
+  "maintainer_email": "ijonas.kisselbach@t-systems.com",
   "license": "All rights reserved",
   "platforms": {
   },
   "dependencies": {
+    "tomcat": [
+
+    ],
+    "mongodb": [
+
+    ],
+    "jruby": [
+
+    ],
+    "mysql": [
+
+    ]
   },
   "recommendations": {
   },
@@ -24,6 +36,8 @@
   "groupings": {
   },
   "recipes": {
+    "contentmigrator": "Installs Content Migrator into a preconfigured Tomcat instance",
+    "contentmigrator::mysqldb": "Creates the database, table structure and admin user account for Content Migrator"
   },
-  "version": "0.0.1"
+  "version": "0.0.2"
 }

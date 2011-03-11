@@ -1,27 +1,8 @@
-development:
-  adapter:  mysql
+production:
+  adapter:  jdbcmysql
   database: <%= node[:contentmigrator][:mysql_database] %>
   username: <%= node[:contentmigrator][:mysql_username] %>
   password: <%= node[:contentmigrator][:mysql_password] %>
   encoding: utf8
   collate:  utf8_bin
   host: <%= node[:contentmigrator][:mysql_host] %>
-
-test:
-    adapter:  mysql
-    database: wwxx_test
-    username: root
-    password:
-    encoding: utf8
-    collate:  utf8_bin
-    host:   localhost
-
-production:
-    adapter:  mysql
-    database: cnf_production
-    username: cnf
-    password: wdc234rgn
-    encoding: utf8
-    collate:  utf8_bin
-    host: master1.staged.vamosa.com
-    reconnect: true

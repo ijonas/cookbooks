@@ -8,12 +8,14 @@
 #
 
 include_recipe "tomcat"
-# include_recipe "mysql::server"
-# include_recipe "mysql"
 include_recipe "mongodb::source"
 include_recipe "jruby"
 
 package "unzip" do
+  action :install
+end
+
+package "git-core" do
   action :install
 end
 
@@ -64,35 +66,21 @@ template "#{node[:tomcat][:home]}/vamosa-runtime.properties" do
   group node[:tomcat][:group]  
 end
 
-# create the database
-template "/tmp/create_database.sql" do
-  source "create_database.sql.erb"
-  mode "0644"
-end
-cookbook_file "/tmp/create_schema.sql" do
-  source "create_schema.sql" 
-  mode "0644"
-end
-cookbook_file "/tmp/seed_schema.sql" do
-  source "seed_schema.sql" 
-  mode "0644"
-end
 template "#{node[:tomcat][:base]}/webapps/vcm/WEB-INF/config/database.yml" do
   source "database.yml.erb" 
   mode "0644"
   owner node[:tomcat][:user]
   group node[:tomcat][:group]
 end
-execute "create_database" do
-  command "mysql -uroot -p#{node[:mysql][:server_root_password]} < /tmp/create_database.sql"
-end
-execute "create_schema" do
-  command "mysql -u#{node[:contentmigrator][:mysql_username]} -p#{node[:contentmigrator][:mysql_password]} #{node[:contentmigrator][:mysql_database]} < /tmp/create_schema.sql"
-end
-execute "seed_schema" do
-  command "mysql -u#{node[:contentmigrator][:mysql_username]} -p#{node[:contentmigrator][:mysql_password]} #{node[:contentmigrator][:mysql_database]} < /tmp/seed_schema.sql"
-end
 execute "install_rails_gems" do
   command "#{node[:jruby][:home_dir]}/bin/jruby -S gem install rails -v 2.3.3 --no-rdoc --no-ri"
   creates "#{node[:jruby][:gems_dir]}/rails-2.3.3/README"
+end
+
+git "#{node[:contentmigrator][:tasklib_home]}/Default Task Library" do
+  repository "git://github.com/vamosa/VCM-Default-Tasks.git"
+  reference "master"
+  action :sync
+  user node[:tomcat][:user]
+  group node[:tomcat][:group]  
 end
