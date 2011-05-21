@@ -44,6 +44,13 @@ execute "untar-wordpress" do
   creates "#{node[:wordpress][:dir]}/wp-settings.php"
 end
 
+execute "move-wordpress-into-root" do
+  cwd node[:wordpress][:dir]
+  command "mv wordpress/* ."
+  creates "#{node[:wordpress][:dir]}/index.php"
+  action :run
+end
+
 execute "mysql-install-wp-privileges" do
   command "/usr/bin/mysql -u root -p#{node[:mysql][:server_root_password]} < /etc/mysql/wp-grants.sql"
   action :nothing
