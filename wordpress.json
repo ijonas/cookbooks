@@ -1,7 +1,7 @@
 {
   "run_list": [
     "recipe[wordpress]",
-  ]
+  ],
   "mysql": {
     "server_root_password": "secretstuff"
   }
